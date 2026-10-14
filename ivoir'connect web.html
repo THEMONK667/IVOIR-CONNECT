@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivoir'Connect | Trouvez les bons pros près de chez vous</title>
+  <meta name="description" content="Ivoir'Connect aide à trouver les meilleurs prestataires de quartier à Abidjan et ailleurs." />
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --ink: #1f2d24;
+      --muted: #59645d;
+      --line: #e4e0d7;
+      --green: #285d46;
+      --green-dark: #1d4738;
+      --green-soft: #eaf2ee;
+      --orange: #d27742;
+      --shadow: 0 18px 44px rgba(19, 27, 23, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      /* FOND DU SITE — Logo Ivoir'Connect en arrière-plan */
+      background-color: #faf8f3;
+      background-image:
+        linear-gradient(rgba(250, 248, 243, 0.92), rgba(250, 248, 243, 0.96)),
+        url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDAwIDkwMCIgd2lkdGg9IjE0MDAiIGhlaWdodD0iOTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibWFwRyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMyZTdjMzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmZjk4MDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTU2NWMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nRyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMGJjZDMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY5ODAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MDAsNDUwKSBzY2FsZSgxLjgpIHRyYW5zbGF0ZSgtMjUwLC0yNTApIj4KICAgIDwhLS0gQ2FydGUgQ8O0dGUgZCdJdm9pcmUgLS0+CiAgICA8cGF0aCBkPSJNMTgwIDE1MCBRIDI0MCAxMDAsIDMyMCAxNDAgUSA0MDAgMTYwLCA0MjAgMjMwIFEgNDUwIDMyMCwgNDAwIDM4MCBRIDM1MCA0MjAsIDI1MCA0MTAgUSAxNTAgNDAwLCAxMjAgMzIwIFEgMTAwIDI0MCwgMTgwIDE1MCBaIiBmaWxsPSJ1cmwoI21hcEcpIiBvcGFjaXR5PSIwLjg1Ii8+CiAgICA8IS0tIEFubmVhdSBleHRyaW5zw6hxdWUgLS0+CiAgICA8cGF0aCBkPSJNMTUwIDI4MCBRIDgwIDI4MCwgMTAwIDM4MCBRIDEyMCA0NjAsIDI1MCA0NjAgUSA0MDAgNDUwLCA0NjAgMzUwIFEgNTAwIDI4MCwgNDUwIDIyMCBRIEVUIDQ1MCAyMjAgNDUwIDIyMCBaIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjcmluZ0cpIiBzdHJva2Utd2lkdGg9IjE0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuNyIvPgogICAgPCEtLSBDZXJjbGUgaW50w6lyaWV1ciAtLT4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjI3MCIgcj0iNzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmOTgwMCIgc3Ryb2tlLXdpZHRoPSIxMCIgb3BhY2l0eT0iMC44Ii8+CiAgICA8Y2lyY2xlIGN4PSIyNTAiIGN5PSIyNzAiIHI9IjUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjI3MCIgcj0iMzAiIGZpbGw9IiMyZTdjMzIiLz4KICAgIDwhLS0gUG9pbnRzIGNvbm5leGlvbiAtLT4KICAgIDxjaXJjbGUgY3g9IjE1MCIgY3k9IjI4MCIgcj0iOCIgZmlsbD0iIzAwYmNkMyIvPgogICAgPGNpcmNsZSBjeD0iMzUwIiBjeT0iMjUwIiByPSI4IiBmaWxsPSIjZmY5ODAwIi8+CiAgICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIzNjAiIHI9IjgiIGZpbGw9IiMwMGJjZDMiLz4KICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjE1MCIgcj0iNiIgZmlsbD0iIzJlN2MzMiIvPgogIDwvZz4KPC9zdmc+");
+      background-size: 750px auto;
+      background-position: center 42%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(1180px, calc(100% - 28px)); margin: 0 auto; }
+
+    /* HEADER */
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      min-height: 78px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-weight: 800; letter-spacing: -0.04em; font-size: 1.15rem;
+    }
+    .brand-mark {
+      width: 46px; height: 46px; border-radius: 14px;
+      overflow: hidden; display: grid; place-items: center;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(40,93,70,0.15);
+    }
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+
+    .location-box {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--muted); font-size: 0.9rem;
+    }
+    .location-box select {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.9);
+      min-height: 42px; border-radius: 12px;
+      padding: 0 12px; color: var(--ink); font-weight: 600;
+    }
+
+    /* HERO */
+    .hero { padding: 62px 0 34px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-block; margin-bottom: 16px;
+      padding: 8px 12px; border-radius: 999px;
+      background: rgba(40,93,70,0.1); color: var(--green-dark);
+      font-size: 0.75rem; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      letter-spacing: -0.07em; line-height: 0.98;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+    }
+    h1 em { color: var(--green); font-style: normal; }
+    .hero-copy {
+      margin: 0 0 28px; max-width: 620px;
+      color: var(--muted); font-size: 1.1rem; line-height: 1.7;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+    }
+
+    .searchbox {
+      display: flex; align-items: center; gap: 12px;
+      max-width: 690px; min-height: 64px;
+      padding: 7px 8px 7px 18px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      border-radius: 18px; box-shadow: var(--shadow);
+    }
+    .searchbox input {
+      flex: 1; min-width: 0; border: 0; background: transparent;
+      outline: none; color: var(--ink); font-size: 1rem; padding: 10px 0;
+    }
+    .searchbox button {
+      min-height: 48px; border: 0; border-radius: 12px;
+      padding: 0 22px; background: var(--green); color: white;
+      font-weight: 800; cursor: pointer;
+    }
+    .searchbox button:hover { background: var(--green-dark); }
+
+    .stats-panel {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .mini-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px; margin-top: 18px;
+    }
+    .metric {
+      padding: 18px 16px; border-radius: 18px;
+      background: var(--green-soft);
+      border: 1px solid rgba(40,93,70,0.08);
+    }
+    .metric strong {
+      display: block; font-size: 1.6rem;
+      letter-spacing: -0.05em; margin-bottom: 6px;
+    }
+    .metric span { color: var(--muted); font-size: 0.82rem; }
+
+    .cta-box {
+      margin-top: 18px; padding: 18px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(40,93,70,0.1), rgba(210,119,66,0.08));
+      border: 1px solid rgba(40,93,70,0.08);
+    }
+    .cta-box strong { display: block; margin-bottom: 8px; font-size: 1rem; }
+    .cta-box a {
+      display: inline-block; margin-top: 8px;
+      padding: 10px 16px; border-radius: 10px;
+      background: var(--green); color: white; font-weight: 700; cursor: pointer;
+    }
+
+    .section { padding: 24px 0 12px; }
+    .section-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; margin-bottom: 18px; flex-wrap: wrap;
+    }
+    .section-head h2 {
+      margin: 0; font-size: clamp(1.8rem, 3vw, 2.8rem);
+      letter-spacing: -0.05em;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+    .tagline { color: var(--muted); font-size: 0.9rem; }
+
+    .feature-row {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line); border-radius: 20px;
+      padding: 22px 18px;
+      backdrop-filter: blur(6px);
+    }
+    .feature .icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: grid; place-items: center;
+      background: var(--green-soft); color: var(--green-dark);
+      font-weight: 900; margin-bottom: 14px; font-size: 1.3rem;
+    }
+    .feature h3 { margin: 0 0 10px; font-size: 1.08rem; }
+    .feature p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 0.94rem; }
+
+    /* DIRECTORY */
+    .directory { padding: 24px 0 40px; }
+    .directory-head {
+      display: flex; align-items: end; justify-content: space-between;
+      gap: 18px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .counter {
+      background: rgba(40,93,70,0.12); color: var(--green-dark);
+      border-radius: 999px; padding: 8px 12px;
+      font-weight: 800; font-size: 0.8rem;
+    }
+
+    .filters {
+      display: flex; gap: 8px; overflow-x: auto;
+      padding: 6px 2px 18px; scrollbar-width: thin;
+    }
+    .chip {
+      white-space: nowrap; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.94); color: var(--muted);
+      padding: 10px 15px; border-radius: 999px;
+      cursor: pointer; font-weight: 700; transition: all 0.15s ease;
+    }
+    .chip.active {
+      background: var(--green); color: white; border-color: var(--green);
+    }
+
+    .toolbar {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .toolbar label, .toolbar button, .toolbar select {
+      min-height: 40px; border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.94);
+      color: var(--ink); font-size: 0.85rem;
+    }
+    .toolbar label {
+      display: inline-flex; align-items: center;
+      gap: 8px; padding: 0 12px; cursor: pointer;
+    }
+    .toolbar button, .toolbar select { padding: 0 12px; font-weight: 700; }
+
+    /* PROVIDER CARDS */
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .provider-card {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line); border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(25, 35, 30, 0.04);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .provider-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(25, 35, 30, 0.08);
+    }
+
+    .provider-top {
+      display: flex; align-items: center;
+      gap: 14px; margin-bottom: 14px;
+    }
+
+    .avatar {
+      width: 64px; height: 64px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(40,93,70,0.12);
+      border: 1px solid rgba(40,93,70,0.08);
+    }
+    .avatar svg { width: 100%; height: 100%; display: block; }
+
+    .provider-name {
+      margin: 0; font-size: 1.05rem; line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .verify {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 4px; font-size: 0.72rem;
+      color: var(--green-dark); background: rgba(40,93,70,0.1);
+      border-radius: 999px; padding: 4px 8px; font-weight: 700;
+    }
+
+    .provider-meta {
+      display: flex; flex-wrap: wrap; gap: 8px 12px;
+      color: var(--muted); font-size: 0.78rem; margin-bottom: 10px;
+    }
+    .service {
+      margin: 0 0 12px; color: var(--muted);
+      line-height: 1.6; font-size: 0.95rem; flex: 1;
+    }
+    .availability {
+      display: inline-flex; align-items: center;
+      padding: 6px 10px; border-radius: 999px;
+      background: rgba(40,93,70,0.1); color: var(--green-dark);
+      font-size: 0.72rem; font-weight: 800;
+      margin-bottom: 14px; align-self: flex-start;
+    }
+
+    .card-actions {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .card-actions button {
+      min-height: 38px; border-radius: 12px;
+      border: 1px solid var(--line); background: white;
+      font-weight: 800; cursor: pointer; color: var(--ink);
+      transition: background 0.15s;
+    }
+    .card-actions button:hover { background: #f4f2ec; }
+    .card-actions .primary {
+      background: var(--green); color: white; border-color: var(--green);
+    }
+    .card-actions .primary:hover { background: var(--green-dark); }
+
+    .empty {
+      padding: 24px 18px; border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      border: 1px dashed var(--line);
+      color: var(--muted); text-align: center;
+    }
+
+    .promo {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px; background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line); border-radius: 28px;
+      padding: 24px; margin: 26px 0 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .promo h3 {
+      margin: 0 0 12px; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.05em;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .promo p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .cta-panel {
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: white; border-radius: 22px;
+      padding: 18px; min-height: 180px; text-align: center;
+    }
+    .cta-panel a {
+      display: inline-block; background: white;
+      color: var(--green-dark); padding: 12px 18px;
+      border-radius: 12px; font-weight: 800; cursor: pointer;
+    }
+
+    footer {
+      padding: 18px 0 34px; color: var(--muted);
+      font-size: 0.8rem; text-align: center;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    /* MODALE */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(19, 27, 23, 0.55);
+      backdrop-filter: blur(3px);
+      display: none; align-items: center; justify-content: center;
+      z-index: 100; padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff; border-radius: 22px;
+      max-width: 520px; width: 100%; max-height: 90vh;
+      overflow-y: auto; padding: 26px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--line); background: white;
+      cursor: pointer; font-size: 1.2rem; line-height: 1; color: var(--muted);
+    }
+    .modal-close:hover { background: #f4f2ec; }
+    .modal h2 {
+      margin: 0 0 16px; font-size: 1.5rem;
+      letter-spacing: -0.03em; font-family: Georgia, serif;
+    }
+    .modal .field { margin-bottom: 14px; }
+    .modal label {
+      display: block; font-size: 0.85rem; font-weight: 700;
+      margin-bottom: 6px; color: var(--muted);
+    }
+    .modal input, .modal textarea, .modal select {
+      width: 100%; border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 14px;
+      background: #faf9f5; outline: none; color: var(--ink);
+    }
+    .modal input:focus, .modal textarea:focus, .modal select:focus {
+      border-color: var(--green); background: #fff;
+    }
+    .modal textarea { resize: vertical; min-height: 90px; }
+    .modal .actions { display: flex; gap: 10px; margin-top: 18px; }
+    .modal .actions button {
+      flex: 1; min-height: 44px; border-radius: 12px;
+      border: 1px solid var(--line); background: white;
+      font-weight: 800; cursor: pointer;
+    }
+    .modal .actions .primary {
+      background: var(--green); color: white; border-color: var(--green);
+    }
+    .modal .actions .primary:hover { background: var(--green-dark); }
+    .modal .info-line {
+      display: flex; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .modal .info-line span:first-child { color: var(--muted); }
+    .modal .info-line span:last-child { font-weight: 700; }
+
+    .toast {
+      position: fixed; bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--green-dark); color: white;
+      padding: 14px 22px; border-radius: 12px;
+      font-weight: 700; box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      opacity: 0; transition: all 0.3s ease; z-index: 200;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .promo, .feature-row { grid-template-columns: 1fr; }
+      body { background-size: 550px auto; background-position: center 60%; }
+    }
+    @media (max-width: 640px) {
+      .topbar-inner { flex-wrap: wrap; justify-content: center; padding: 14px 0; }
+      .searchbox { flex-wrap: wrap; padding: 10px 12px; }
+      .searchbox button { width: 100%; }
+      .provider-grid { grid-template-columns: 1fr; }
+      body { background-size: 400px auto; background-position: center 65%; background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#" class="brand" aria-label="Ivoir'Connect">
+        <span class="brand-mark" id="brandMark"></span>
+        <span>Ivoir'Connect</span>
+      </a>
+      <div class="location-box">
+        <label for="quartierSelect">Autour de</label>
+        <select id="quartierSelect" aria-label="Choisir un quartier">
+          <option value="all">Tout Abidjan</option>
+          <option value="Angré">Angré</option>
+          <option value="Cocody">Cocody</option>
+          <option value="Yopougon">Yopougon</option>
+          <option value="Marcory">Marcory</option>
+          <option value="Yamoussoukro">Yamoussoukro</option>
+          <option value="Bouaké">Bouaké</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Marketplace locale</span>
+          <h1>Les bonnes adresses, <em>près de chez vous.</em></h1>
+          <p class="hero-copy">Trouvez rapidement un artisan fiable, un bon repas, une aide du quartier ou un service utile. Simple, rapide et pensé pour les habitants.</p>
+          <form id="searchForm" class="searchbox" aria-label="Rechercher un prestataire">
+            <input id="searchInput" type="search" placeholder="Plombier, coiffeuse, livraison…" aria-label="Recherche" />
+            <button type="submit">Rechercher</button>
+          </form>
+        </div>
+        <aside class="stats-panel">
+          <div class="tagline">Ce qui marche localement</div>
+          <div class="mini-grid">
+            <div class="metric"><strong>1.2k+</strong><span>Prestataires</span></div>
+            <div class="metric"><strong>4.7/5</strong><span>Moyenne</span></div>
+            <div class="metric"><strong>18</strong><span>Catégories</span></div>
+            <div class="metric"><strong>24h</strong><span>Disponibilité</span></div>
+          </div>
+          <div class="cta-box">
+            <strong>Publier votre annonce</strong>
+            <div>Augmentez votre visibilité et attirez de nouveaux clients près de chez vous.</div>
+            <a href="#" data-open-modal="annonce">Déposer une fiche</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Pourquoi les gens nous utilisent</h2>
+        <span class="tagline">Un accès simple aux meilleurs pros du quartier</span>
+      </div>
+      <div class="feature-row">
+        <article class="feature">
+          <div class="icon">⌕</div>
+          <h3>Recherche intelligente</h3>
+          <p>Recherchez selon le métier, le service ou le quartier sans perdre du temps.</p>
+        </article>
+        <article class="feature">
+          <div class="icon">★</div>
+          <h3>Prestataires fiables</h3>
+          <p>Des profils vérifiés, triés par note et disponibilités, pour des choix rapides.</p>
+        </article>
+        <article class="feature">
+          <div class="icon">♡</div>
+          <h3>Favoris personnalisés</h3>
+          <p>Gardez les meilleurs pros à portée de main pour revenir plus tard facilement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="directory" id="annonces">
+      <div class="directory-head">
+        <h2>Les prestataires du coin</h2>
+        <span class="counter" id="counter">0 résultat</span>
+      </div>
+      <nav id="filters" class="filters"></nav>
+      <div class="toolbar">
+        <label><input id="availableOnly" type="checkbox" /> Disponible aujourd'hui</label>
+        <button type="button" id="favoritesOnly">♡ Mes favoris</button>
+        <label for="sortSelect">Trier par</label>
+        <select id="sortSelect">
+          <option value="recommended">Recommandés</option>
+          <option value="rating">Meilleures notes</option>
+          <option value="price">Prix croissant</option>
+        </select>
+      </div>
+      <div id="list" class="provider-grid"></div>
+    </section>
+
+    <section class="promo">
+      <div>
+        <h3>Le quartier gagne en visibilité.</h3>
+        <p>Que vous soyez un artisan, un commerçant ou un service à domicile, Ivoir'Connect vous aide à être trouvé par les bons clients au bon moment.</p>
+      </div>
+      <div class="cta-panel">
+        <a href="#" data-open-modal="annonce">Déposer une annonce</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Ivoir'Connect · Votre réseau ivoirien, connecté</footer>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" id="modalContent"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* ============================================================
+       LOGOS SVG ESTHÉTIQUES PAR MÉTIER
+    ============================================================ */
+    const LOGOS = {
+      plomberie: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="plombBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8f4f8"/><stop offset="100%" stop-color="#c8e0ea"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#plombBg)"/>
+          <path d="M50 22 C 40 36, 30 46, 30 58 A 20 20 0 0 0 70 58 C 70 46, 60 36, 50 22 Z" fill="#2b7bb9"/>
+          <ellipse cx="42" cy="52" rx="5" ry="7" fill="#7fc4e8" opacity="0.85"/>
+        </svg>`,
+      electricite: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="elecBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff8e1"/><stop offset="100%" stop-color="#ffe082"/>
+          </linearGradient>
+          <linearGradient id="boltG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffb300"/><stop offset="100%" stop-color="#f57c00"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#elecBg)"/>
+          <circle cx="50" cy="50" r="32" fill="#fff" opacity="0.55"/>
+          <path d="M56 20 L34 52 L48 52 L44 80 L68 46 L52 46 Z" fill="url(#boltG)" stroke="#e65100" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>`,
+      coiffure: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="coifBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fce4ec"/><stop offset="100%" stop-color="#f8bbd0"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#coifBg)"/>
+          <path d="M50 24 C 38 24, 30 34, 30 46 C 30 54, 34 60, 40 64 L 38 76 C 38 78, 40 80, 42 80 L 58 80 C 60 80, 62 78, 62 76 L 60 64 C 66 60, 70 54, 70 46 C 70 34, 62 24, 50 24 Z" fill="#c2185b"/>
+          <ellipse cx="50" cy="46" rx="14" ry="16" fill="#f8bbd0"/>
+          <circle cx="44" cy="44" r="1.5" fill="#c2185b"/>
+          <circle cx="56" cy="44" r="1.5" fill="#c2185b"/>
+          <path d="M46 52 Q 50 55 54 52" stroke="#c2185b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>`,
+      alimentation: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="cuisineBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff3e0"/><stop offset="100%" stop-color="#ffe0b2"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#cuisineBg)"/>
+          <path d="M30 45 Q 30 42 33 42 L 67 42 Q 70 42 70 45 L 70 70 Q 70 78 62 78 L 38 78 Q 30 78 30 70 Z" fill="#d27742"/>
+          <rect x="26" y="40" width="48" height="6" rx="3" fill="#a0522d"/>
+          <path d="M42 34 Q 44 28 42 24" stroke="#a0522d" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <path d="M50 32 Q 52 24 50 20" stroke="#a0522d" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <path d="M58 34 Q 60 28 58 24" stroke="#a0522d" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        </svg>`,
+      sante: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="santeBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffebee"/><stop offset="100%" stop-color="#ffcdd2"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#santeBg)"/>
+          <path d="M50 78 C 20 60, 20 32, 38 30 C 46 29, 50 36, 50 42 C 50 36, 54 29, 62 30 C 80 32, 80 60, 50 78 Z" fill="#e53935"/>
+          <rect x="44" y="40" width="12" height="30" rx="3" fill="#fff"/>
+          <rect x="35" y="49" width="30" height="12" rx="3" fill="#fff"/>
+        </svg>`,
+      informatique: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="infoBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#eceff1"/><stop offset="100%" stop-color="#cfd8dc"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#infoBg)"/>
+          <rect x="22" y="28" width="56" height="38" rx="5" fill="#263238"/>
+          <rect x="27" y="33" width="46" height="28" rx="3" fill="#4fc3f7"/>
+          <rect x="32" y="38" width="20" height="3" rx="1.5" fill="#fff"/>
+          <rect x="32" y="45" width="30" height="3" rx="1.5" fill="#fff"/>
+          <rect x="32" y="52" width="24" height="3" rx="1.5" fill="#fff"/>
+          <rect x="38" y="68" width="24" height="4" rx="2" fill="#263238"/>
+          <rect x="30" y="74" width="40" height="4" rx="2" fill="#455a64"/>
+        </svg>`,
+      menuiserie: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="menBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#efebe9"/><stop offset="100%" stop-color="#d7ccc8"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#menBg)"/>
+          <rect x="20" y="62" width="60" height="16" rx="3" fill="#a1887f"/>
+          <path d="M24 66 L76 66 M24 70 L60 70 M24 74 L70 74" stroke="#795548" stroke-width="1.5" opacity="0.5"/>
+          <g transform="rotate(-30 50 50)">
+            <rect x="44" y="20" width="12" height="30" rx="2" fill="#795548"/>
+            <rect x="36" y="18" width="28" height="14" rx="3" fill="#546e7a"/>
+          </g>
+        </svg>`,
+      ferronnerie: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="ferBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#eceff1"/><stop offset="100%" stop-color="#b0bec5"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#ferBg)"/>
+          <g transform="rotate(-25 50 50)">
+            <rect x="44" y="22" width="12" height="50" rx="3" fill="#546e7a"/>
+            <path d="M38 22 Q 50 12 62 22 L 62 30 L 38 30 Z" fill="#37474f"/>
+          </g>
+          <circle cx="68" cy="68" r="14" fill="none" stroke="#546e7a" stroke-width="4"/>
+          <circle cx="68" cy="68" r="5" fill="#b0bec5"/>
+        </svg>`,
+      transport: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="transBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff8e1"/><stop offset="100%" stop-color="#ffecb3"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#transBg)"/>
+          <rect x="18" y="38" width="40" height="26" rx="3" fill="#f57c00"/>
+          <path d="M58 44 L 74 44 Q 78 44 80 48 L 84 58 L 84 64 L 58 64 Z" fill="#ef6c00"/>
+          <rect x="62" y="48" width="12" height="10" rx="1.5" fill="#bbdefb"/>
+          <circle cx="32" cy="68" r="7" fill="#37474f"/>
+          <circle cx="32" cy="68" r="3" fill="#90a4ae"/>
+          <circle cx="72" cy="68" r="7" fill="#37474f"/>
+          <circle cx="72" cy="68" r="3" fill="#90a4ae"/>
+        </svg>`,
+      jardinage: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jardBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8f5e9"/><stop offset="100%" stop-color="#c8e6c9"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#jardBg)"/>
+          <path d="M50 78 C 30 60, 30 30, 50 22 C 70 30, 70 60, 50 78 Z" fill="#43a047"/>
+          <path d="M50 30 Q 42 44 42 56" stroke="#2e7d32" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <path d="M50 30 Q 58 44 58 56" stroke="#2e7d32" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <path d="M20 68 L 22 60 L 40 56 L 40 68 Z" fill="#66bb6a"/>
+        </svg>`,
+      beaute: `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="beauBg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fce4ec"/><stop offset="100%" stop-color="#f8bbd0"/>
+          </linearGradient></defs>
+          <rect width="100" height="100" rx="22" fill="url(#beauBg)"/>
+          <circle cx="50" cy="46" r="20" fill="#f8bbd0"/>
+          <path d="M50 26 C 38 26, 30 36, 30 46 C 30 56, 38 66, 50 66 C 62 66, 70 56, 70 46 C 70 36, 62 26, 50 26 Z" fill="#f48fb1"/>
+          <path d="M42 44 Q 46 42 50 44" stroke="#ad1457" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M50 44 Q 54 42 58 44" stroke="#ad1457" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M46 54 Q 50 57 54 54" stroke="#ad1457" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <g transform="translate(50,22)">
+            <circle cx="0" cy="-7" r="3.5" fill="#f06292"/>
+            <circle cx="6.5" cy="-2" r="3.5" fill="#f06292"/>
+            <circle cx="4" cy="5" r="3.5" fill="#f06292"/>
+            <circle cx="-4" cy="5" r="3.5" fill="#f06292"/>
+            <circle cx="-6.5" cy="-2" r="3.5" fill="#f06292"/>
+          </g>
+        </svg>`
+    };
+
+    /* Logo principal simplifié pour la barre de navigation */
+    document.getElementById("brandMark").innerHTML = `
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="brandG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2e7c32"/>
+            <stop offset="50%" stop-color="#ff9800"/>
+            <stop offset="100%" stop-color="#1565c0"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#brandG)"/>
+        <circle cx="50" cy="50" r="32" fill="none" stroke="#fff" stroke-width="3" opacity="0.9"/>
+        <circle cx="50" cy="50" r="18" fill="#fff"/>
+        <circle cx="50" cy="50" r="10" fill="#2e7c32"/>
+        <path d="M50 40 Q 55 45 50 52 Q 45 45 50 40 Z" fill="#ff9800"/>
+      </svg>`;
+
+    /* ============================================================
+       DONNÉES
+    ============================================================ */
+    const prestataires = [
+      { id: 1, nom: "Ibrahim Koné", service: "Plomberie et dépannage", cat: "plomberie", prix: "Dès 5 000 F", prixValeur: 5000, note: 4.8, distance: "800 m", quartier: "Angré", dispo: "Disponible aujourd'hui", verifie: true },
+      { id: 2, nom: "Awa Traoré", service: "Coiffure à domicile", cat: "coiffure", prix: "Dès 3 000 F", prixValeur: 3000, note: 4.9, distance: "1,2 km", quartier: "Cocody", dispo: "Disponible aujourd'hui", verifie: true },
+      { id: 3, nom: "Kouassi Électricien", service: "Électricité générale", cat: "electricite", prix: "Dès 7 500 F", prixValeur: 7500, note: 4.6, distance: "2,1 km", quartier: "Marcory", dispo: "Sur rendez-vous", verifie: false },
+      { id: 4, nom: "Chez Tante Adjoua", service: "Cuisine locale · attiéké, garba", cat: "alimentation", prix: "Dès 1 500 F", prixValeur: 1500, note: 4.7, distance: "500 m", quartier: "Angré", dispo: "Disponible aujourd'hui", verifie: true },
+      { id: 5, nom: "Cabinet Dr Bamba", service: "Médecine générale", cat: "sante", prix: "Dès 10 000 F", prixValeur: 10000, note: 4.5, distance: "3 km", quartier: "Cocody", dispo: "Sur rendez-vous", verifie: true },
+      { id: 6, nom: "Moussa Express", service: "Livraison à moto", cat: "transport", prix: "Dès 1 000 F", prixValeur: 1000, note: 4.4, distance: "1,5 km", quartier: "Angré", dispo: "Disponible aujourd'hui", verifie: false },
+      { id: 7, nom: "Atelier Bois du Centre", service: "Menuisier · meubles et réparations", cat: "menuiserie", prix: "Dès 8 000 F", prixValeur: 8000, note: 4.7, distance: "1,4 km", quartier: "Cocody", dispo: "Disponible aujourd'hui", verifie: false },
+      { id: 8, nom: "Ferronnerie du Marché", service: "Ferronnier · portails et soudures", cat: "ferronnerie", prix: "Dès 10 000 F", prixValeur: 10000, note: 4.6, distance: "2 km", quartier: "Yopougon", dispo: "Sur rendez-vous", verifie: true },
+      { id: 9, nom: "Salle de beauté Nadia", service: "Coiffure, beauté et soins", cat: "beaute", prix: "Dès 4 000 F", prixValeur: 4000, note: 4.8, distance: "1,1 km", quartier: "Cocody", dispo: "Disponible aujourd'hui", verifie: true },
+      { id: 10, nom: "Marmite de la rue", service: "Cuisine familiale · repas du jour", cat: "alimentation", prix: "Dès 2 000 F", prixValeur: 2000, note: 4.6, distance: "700 m", quartier: "Angré", dispo: "Disponible aujourd'hui", verifie: false },
+      { id: 11, nom: "Service Plus", service: "Dépannage informatique et réseaux", cat: "informatique", prix: "Dès 6 000 F", prixValeur: 6000, note: 4.7, distance: "1,6 km", quartier: "Marcory", dispo: "Sur rendez-vous", verifie: true },
+      { id: 12, nom: "Jardin de l'Est", service: "Jardinier et entretien extérieur", cat: "jardinage", prix: "Dès 5 000 F", prixValeur: 5000, note: 4.5, distance: "1,9 km", quartier: "Yopougon", dispo: "Disponible aujourd'hui", verifie: false }
+    ];
+
+    const categories = [
+      { id: "all", label: "Tout voir" },
+      { id: "plomberie", label: "Plomberie" },
+      { id: "electricite", label: "Électricité" },
+      { id: "coiffure", label: "Coiffure" },
+      { id: "beaute", label: "Beauté" },
+      { id: "alimentation", label: "Cuisine" },
+      { id: "sante", label: "Santé" },
+      { id: "transport", label: "Transport" },
+      { id: "menuiserie", label: "Menuiserie" },
+      { id: "ferronnerie", label: "Ferronnerie" },
+      { id: "informatique", label: "Informatique" },
+      { id: "jardinage", label: "Jardinage" }
+    ];
+
+    let activeCat = "all";
+    let searchText = "";
+    let selectedQuartier = "all";
+    let favorites = new Set(JSON.parse(localStorage.getItem("ivoir-favs") || "[]"));
+    let favoritesOnly = false;
+    let sortMode = "recommended";
+
+    const filtersEl = document.getElementById("filters");
+    const listEl = document.getElementById("list");
+    const counterEl = document.getElementById("counter");
+    const quartierSelect = document.getElementById("quartierSelect");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalContent = document.getElementById("modalContent");
+    const toastEl = document.getElementById("toast");
+
+    function getLogo(provider) {
+      const logo = LOGOS[provider.cat];
+      if (logo) return logo;
+      const initial = provider.nom.charAt(0).toUpperCase();
+      const colors = ["#285d46", "#d27742", "#3a7d5e", "#b5622f"];
+      const bg = colors[provider.id % colors.length];
+      return `
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="22" fill="${bg}"/>
+          <text x="50" y="68" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#f7f5ef" text-anchor="middle">${initial}</text>
+        </svg>`;
+    }
+
+    function openModal(html) {
+      modalContent.innerHTML = `
+        <button class="modal-close" type="button" aria-label="Fermer" onclick="closeModal()">×</button>
+        ${html}
+      `;
+      modalOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    window.closeModal = closeModal;
+
+    function showToast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add("show");
+      clearTimeout(toastEl._timer);
+      toastEl._timer = setTimeout(() => toastEl.classList.remove("show"), 2600);
+    }
+
+    function showProviderDetails(provider) {
+      const fav = favorites.has(provider.id);
+      openModal(`
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+          <div class="avatar" style="width:72px;height:72px;">${getLogo(provider)}</div>
+          <div>
+            <h2 style="margin:0 0 4px;">${provider.nom}</h2>
+            <div style="color:var(--muted);font-size:0.9rem;">${provider.service}</div>
+            <div style="color:var(--muted);font-size:0.8rem;margin-top:2px;">${provider.quartier} · ${provider.distance}</div>
+          </div>
+        </div>
+        <div class="info-line"><span>Note</span><span>★ ${provider.note} / 5</span></div>
+        <div class="info-line"><span>Prix</span><span>${provider.prix}</span></div>
+        <div class="info-line"><span>Disponibilité</span><span>${provider.dispo}</span></div>
+        <div class="info-line"><span>Vérification</span><span>${provider.verifie ? "✓ Vérifié" : "Non vérifié"}</span></div>
+        <div class="actions">
+          <button type="button" onclick="toggleFavoriteFromModal(${provider.id})">${fav ? "♥ Retirer des favoris" : "♡ Ajouter aux favoris"}</button>
+          <button type="button" class="primary" onclick="showContactModal(${provider.id})">Contacter</button>
+        </div>
+      `);
+    }
+
+    function showContactModal(id) {
+      const p = prestataires.find(x => x.id === id);
+      if (!p) return;
+      const phone = "+225 07 " + String(10000000 + id * 1234567).slice(0, 8);
+      openModal(`
+        <h2>Contacter ${p.nom}</h2>
+        <p style="color:var(--muted);margin-top:0;">${p.service} · ${p.quartier}</p>
+        <div class="info-line"><span>Téléphone</span><span>${phone}</span></div>
+        <div class="info-line"><span>Disponibilité</span><span>${p.dispo}</span></div>
+        <div class="field" style="margin-top:16px;">
+          <label for="contactMsg">Votre message</label>
+          <textarea id="contactMsg" placeholder="Bonjour, je souhaite obtenir un devis pour…"></textarea>
+        </div>
+        <div class="actions">
+          <button type="button" onclick="closeModal()">Annuler</button>
+          <button type="button" class="primary" onclick="sendContact('${p.nom.replace(/'/g, "\\'")}')">Envoyer</button>
+        </div>
+      `);
+    }
+
+    function sendContact(nom) {
+      closeModal();
+      showToast(`Message envoyé à ${nom} ✓`);
+    }
+
+    function toggleFavoriteFromModal(id) {
+      if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
+      localStorage.setItem("ivoir-favs", JSON.stringify([...favorites]));
+      closeModal();
+      render();
+      showToast(favorites.has(id) ? "Ajouté aux favoris ♥" : "Retiré des favoris");
+    }
+
+    window.showContactModal = showContactModal;
+    window.sendContact = sendContact;
+    window.toggleFavoriteFromModal = toggleFavoriteFromModal;
+
+    function showAnnonceModal() {
+      openModal(`
+        <h2>Déposer une annonce</h2>
+        <p style="color:var(--muted);margin-top:0;">Remplissez ce formulaire, nous vous recontacterons sous 24h.</p>
+        <form id="annonceForm">
+          <div class="field"><label>Nom / Raison sociale *</label><input required placeholder="Ex : Ibrahim Koné" /></div>
+          <div class="field"><label>Service proposé *</label><input required placeholder="Ex : Plomberie et dépannage" /></div>
+          <div class="field"><label>Catégorie *</label>
+            <select required>
+              ${categories.filter(c => c.id !== "all").map(c => `<option value="${c.id}">${c.label}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field"><label>Quartier *</label>
+            <select required>
+              <option value="Angré">Angré</option>
+              <option value="Cocody">Cocody</option>
+              <option value="Yopougon">Yopougon</option>
+              <option value="Marcory">Marcory</option>
+              <option value="Yamoussoukro">Yamoussoukro</option>
+              <option value="Bouaké">Bouaké</option>
+            </select>
+          </div>
+          <div class="field"><label>Prix indicatif</label><input placeholder="Ex : Dès 5 000 F" /></div>
+          <div class="field"><label>Téléphone *</label><input required placeholder="+225 07 XX XX XX XX" /></div>
+          <div class="field"><label>Description</label><textarea placeholder="Décrivez votre activité, vos horaires…"></textarea></div>
+          <div class="actions">
+            <button type="button" onclick="closeModal()">Annuler</button>
+            <button type="submit" class="primary">Envoyer ma demande</button>
+          </div>
+        </form>
+      `);
+      document.getElementById("annonceForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        closeModal();
+        showToast("Demande envoyée ✓ Nous vous recontactons sous 24h");
+      });
+    }
+
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest("[data-open-modal]");
+      if (trigger) {
+        e.preventDefault();
+        if (trigger.getAttribute("data-open-modal") === "annonce") showAnnonceModal();
+      }
+    });
+
+    function normalize(value) {
+      return value.toLocaleLowerCase("fr").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function renderFilters() {
+      filtersEl.innerHTML = "";
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip" + (cat.id === activeCat ? " active" : "");
+        btn.textContent = cat.label;
+        btn.addEventListener("click", () => {
+          activeCat = cat.id;
+          renderFilters();
+          render();
+        });
+        filtersEl.appendChild(btn);
+      });
+    }
+
+    function createCard(provider) {
+      const card = document.createElement("article");
+      card.className = "provider-card";
+
+      const top = document.createElement("div");
+      top.className = "provider-top";
+
+      const avatar = document.createElement("div");
+      avatar.className = "avatar";
+      avatar.innerHTML = getLogo(provider);
+
+      const metaWrap = document.createElement("div");
+      const name = document.createElement("h3");
+      name.className = "provider-name";
+      name.textContent = provider.nom;
+      metaWrap.appendChild(name);
+
+      if (provider.verifie) {
+        const verify = document.createElement("div");
+        verify.className = "verify";
+        verify.textContent = "✓ Vérifié";
+        metaWrap.appendChild(verify);
+      }
+
+      top.appendChild(avatar);
+      top.appendChild(metaWrap);
+      card.appendChild(top);
+
+      const providerMeta = document.createElement("div");
+      providerMeta.className = "provider-meta";
+      providerMeta.innerHTML = `<span>★ ${provider.note}</span><span>⌖ ${provider.distance}</span><span>${provider.prix}</span>`;
+      card.appendChild(providerMeta);
+
+      const service = document.createElement("p");
+      service.className = "service";
+      service.textContent = provider.service;
+      card.appendChild(service);
+
+      const availability = document.createElement("span");
+      availability.className = "availability";
+      availability.textContent = provider.dispo;
+      card.appendChild(availability);
+
+      const actions = document.createElement("div");
+      actions.className = "card-actions";
+
+      const detailsBtn = document.createElement("button");
+      detailsBtn.type = "button";
+      detailsBtn.className = "primary";
+      detailsBtn.textContent = "Détails";
+      detailsBtn.addEventListener("click", () => showProviderDetails(provider));
+
+      const favoriteBtn = document.createElement("button");
+      favoriteBtn.type = "button";
+      favoriteBtn.textContent = favorites.has(provider.id) ? "♥ Favori" : "♡ Favori";
+      favoriteBtn.addEventListener("click", () => {
+        if (favorites.has(provider.id)) favorites.delete(provider.id);
+        else favorites.add(provider.id);
+        localStorage.setItem("ivoir-favs", JSON.stringify([...favorites]));
+        render();
+      });
+
+      actions.append(detailsBtn, favoriteBtn);
+      card.appendChild(actions);
+      return card;
+    }
+
+    function render() {
+      const query = normalize(searchText).trim();
+      const terms = query.split(/\s+/).filter(Boolean);
+
+      let filtered = prestataires.filter(provider => {
+        const matchesCat = activeCat === "all" || provider.cat === activeCat;
+        const matchesQuartier = selectedQuartier === "all" || provider.quartier === selectedQuartier;
+        const isAvailable = !document.getElementById("availableOnly").checked || provider.dispo === "Disponible aujourd'hui";
+        const isFavorite = !favoritesOnly || favorites.has(provider.id);
+        const haystack = normalize([provider.nom, provider.service, provider.cat, provider.quartier, provider.dispo].join(" "));
+        const matchesSearch = terms.length === 0 || terms.every(term => haystack.includes(term));
+        return matchesCat && matchesQuartier && isAvailable && isFavorite && matchesSearch;
+      });
+
+      if (sortMode === "rating") filtered.sort((a, b) => b.note - a.note);
+      else if (sortMode === "price") filtered.sort((a, b) => a.prixValeur - b.prixValeur);
+      else filtered.sort((a, b) => (b.note * 10 + b.prixValeur / 1000) - (a.note * 10 + a.prixValeur / 1000));
+
+      counterEl.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}`;
+      listEl.innerHTML = "";
+
+      if (filtered.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "Aucun prestataire ne correspond à cette recherche pour le moment.";
+        listEl.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach(provider => listEl.appendChild(createCard(provider)));
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      searchText = document.getElementById("searchInput").value;
+      render();
+    });
+    document.getElementById("availableOnly").addEventListener("change", render);
+    document.getElementById("favoritesOnly").addEventListener("click", () => {
+      favoritesOnly = !favoritesOnly;
+      document.getElementById("favoritesOnly").textContent = favoritesOnly ? "♥ Mes favoris" : "♡ Mes favoris";
+      render();
+    });
+    document.getElementById("sortSelect").addEventListener("change", (event) => {
+      sortMode = event.target.value;
+      render();
+    });
+    quartierSelect.addEventListener("change", (event) => {
+      selectedQuartier = event.target.value;
+      render();
+    });
+
+    renderFilters();
+    render();
+  </script>
+</body>
+</html>
